@@ -79,7 +79,7 @@ The dataset consists of:
      select(ICDDxCode) %>%
      distinct()
 
-head(unmatched_codes)
+   head(unmatched_codes)
 2. **Convert Currency Columns**
    Remove non-numeric characters (like $ or,) and convert them to numeric.
    ```r
@@ -112,7 +112,14 @@ head(unmatched_codes)
      mutate(across(all_of(month_year_columns), ~ ifelse(is.null(.), NA, .))) %>%
      mutate(across(all_of(month_year_columns), ~ as.numeric(.)))
 
-4. **Remove Duplicates**
+4. **Convert CheckNumber column to numeric
+   ```r
+   # Convert CheckNumber to numeric
+   claims_data <- claims_data %>%
+     mutate(
+       CheckNumber = as.numeric(CheckNumber)
+     )
+5. **Remove Duplicates**
    Duplicate Claim IDs were removed, retaining only the record with the lowest sequence number.
    ```r
     # Remove duplicate ClaimIDs by keeping the row with the lowest ICDDxCodeSeq
@@ -121,7 +128,7 @@ head(unmatched_codes)
      filter(ICDDXCodeSeq == min(ICDDXCodeSeq)) %>%   # Keep rows with the minimum sequence
      ungroup()                                       # Ungroup the data
 
-5. **Export data to CSV and Excel**
+6. **Export data to CSV and Excel**
    Processed data was exported to Excel for pivot table analysis and visualization.
    ```r
    # Write results to a new CSV file
