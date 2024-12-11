@@ -13,7 +13,7 @@ The dataset consists of:
    - **High Blood Pressure**
    - **COPD and Asthma**
    - **Other**
-2. Deduplicate claims using ICDDxCodeSeq.
+2. Remove duplicate claims by using the ClaimID and prioritizing ICDDxCodeSeq.
 3. Analyze:
    - Total costs and claims count.
    - Diagnosis percentages by Medical and Behavioral Health claims.
