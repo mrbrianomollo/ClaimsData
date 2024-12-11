@@ -94,6 +94,12 @@ claims_data <- claims_data %>%
   mutate(across(all_of(month_year_columns), ~ ifelse(is.null(.), NA, .))) %>%
   mutate(across(all_of(month_year_columns), ~ as.numeric(.)))
 
+# Convert CheckNumber to numeric
+claims_data <- claims_data %>%
+  mutate(
+    CheckNumber = as.numeric(CheckNumber)
+  )
+
 # Step 3: Remove duplicate Based on Min Sequence
 # Remove duplicate ClaimIDs by keeping the row with the lowest ICDDxCodeSeq
 claims_data_duplicate <- claims_data %>%
@@ -110,5 +116,4 @@ library(writexl)
 
 # Export the duplicate data to an Excel file
 write_xlsx(claims_data_duplicate, "processed_claims_data.xlsx")
-
 
