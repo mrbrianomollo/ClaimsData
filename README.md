@@ -151,6 +151,11 @@ The dataset consists of:
    - Percentages relative to total claims.
 
 3. **Conclusion**
+
+## Screenshots
+![Screenshot 2024-12-11 at 3 36 38 PM](https://github.com/user-attachments/assets/1a613967-327e-4bf0-b556-33866cd323a2)
+![Screenshot 2024-12-11 at 3 39 12 PM](https://github.com/user-attachments/assets/623193d0-b1f1-4e84-b080-b1c5446bc0de)
+
    
 ## Technologies Used
 - **R**: Data cleaning and preparation.
